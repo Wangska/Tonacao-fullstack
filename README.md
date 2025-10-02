@@ -15,9 +15,9 @@ Minimal PHP app with user auth, simple NFT model, and a dashboard. Uses MySQL (T
 ### Setup
 1. Create database in MySQL (TablePlus or CLI). Use the schema below.
 2. Copy `.env.example` to `.env` and fill credentials or rely on Coolify envs.
-3. Serve the app from the project root with PHP's built-in server:
+3. Serve the app from the project root with PHP's built-in server (root-based index.php):
    ```bash
-   php -S 0.0.0.0:8000 -t public
+   php -S 0.0.0.0:8000
    ```
 
 ### Environment variables
@@ -62,7 +62,7 @@ Open http://localhost:8000
 
 ### Deploy on Coolify
 - Add a PHP runtime (Nginx + PHP-FPM image or Apache + PHP)
-- Set project root to the repository root; web root to `public`
+- Set project root to the repository root; web root to repo root (index.php at root)
 - Configure environment variables as above
 - Ensure database is reachable and schema applied
 

@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
 
-// Bootstrap
-$root = dirname(__DIR__);
+// Bootstrap from repo root
+$root = __DIR__;
 require_once $root . '/config/db.php';
 require_once $root . '/src/lib/session.php';
 require_once $root . '/src/lib/helpers.php';
