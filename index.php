@@ -1,6 +1,11 @@
 <?php
 declare(strict_types=1);
 
+// Enable output buffering early to prevent premature output breaking headers
+if (ob_get_level() === 0) {
+    ob_start();
+}
+
 // Bootstrap from repo root
 $root = __DIR__;
 require_once $root . '/config/db.php';
@@ -37,6 +42,11 @@ switch ($route) {
         requireAuth();
         (new DashboardController($pdo))->index();
         break;
+}
+
+// Flush output buffer at the end
+if (ob_get_level() > 0) {
+    ob_end_flush();
 }
 
 
